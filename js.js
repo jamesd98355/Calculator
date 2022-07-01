@@ -3,6 +3,7 @@ const numberButton = document.getElementsByClassName('number-button')
 const operatorButton = document.getElementsByClassName('operator-button')
 const clearButton = document.getElementById('clear');
 const equalsButton = document.getElementById('equals');
+const deleteButton = document.getElementById('delete');
 
 
 
@@ -20,6 +21,10 @@ clearButton.addEventListener('click', clearDisplay)
 
 // update display on equals click
 equalsButton.addEventListener('click', evaluate)
+
+
+// update display on delete click
+deleteButton.addEventListener('click', deleteLastCharacter)
 
 // calculate result from screen value
 //split into array, every second value is operand and every other value is number 
@@ -43,6 +48,10 @@ function updateDisplay(number){
 
 function clearDisplay(){
     displayValue.textContent = '0';
+}
+
+function deleteLastCharacter(){
+    displayValue.textContent = displayValue.textContent.slice(0,-1)
 }
 
 
