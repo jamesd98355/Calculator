@@ -27,12 +27,11 @@ function evaluate()
 {
     const screenString = displayValue.textContent;
     if(displayValue.textContent == "0"){return}
-    const screenArray = screenString.split("");
-    const firstNumber = screenArray[0];
-    const operand = screenArray[1];
-    const secondNumber = screenArray[2];
 
-    const result = operate(operand,firstNumber,secondNumber);
+    const numbers = screenString.match(/\d+/g);
+    const operand = screenString.replace(/[0-9]/g, '');
+
+    const result = operate(operand,numbers[0],numbers[1]);
     displayValue.textContent = result;
 }
 
